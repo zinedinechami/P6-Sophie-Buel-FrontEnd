@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <script src="login_script.js" defer></script>
+    <title>Sophie Bluel - Architecte d'intérieur - Login</title>
+  </head>
+  <body>
+    <header>
+      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+      <nav>
+        <ul>
+          <a href="index.html"><li>projets</li></a>
+          <li>contact</li>
+          <li>login</li>
+          <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="login">
+      <h2 class="login__title">Log In</h2>
+      <form id="login">
+        <div class="login__inputs">
+          <!-- email input -->
+          <p>Email</p>
+          <input id="email" type="email" required />
+        </div>
+        <div class="login__inputs">
+          <!-- passsword input -->
+          <p>Mot de passe</p>
+          <input id="password" type="password" required />
+        </div>
+        <p id="error" class="inactive">
+          Erreur dans l’identifiant ou le mot de passe
+        </p>
+        <button type="submit">Se connecter</button>
+      </form>
+      <a href="">Mot de passe oublié</a>
+    </section>
+    <footer>
+      <nav>
+        <ul>
+          <li>Mentions Légales</li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
