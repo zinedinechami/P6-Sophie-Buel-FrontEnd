@@ -20,7 +20,7 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
     <script src="script.js" defer></script>
-    <script src="modal_script.js"></script>
+    <script src="modal_script.js" defer></script>
   </head>
   <body>
     <header>
@@ -59,20 +59,43 @@
         </article>
       </section>
       <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <div class="modal_title">
+          <h2 class="portfolio_title">Mes Projets</h2>
+          <a class="js-modal" href="#modal1"
+            ><i class="fa-regular fa-pen-to-square"></i>modifier</a
+          >
+        </div>
         <!-- modal etape 3 -->
-        <a href="#modal1"><i class="fa-solid fa-pen-to-square"></i>modifer</a>
-        <aside
-          id="modal1"
-          class="modal"
-          aria-hidden="true"
-          role="dialog"
-          style="display: none"
-        >
-          <div class="modal-wrapper">
-            <h2>Galerie photo</h2>
-            <a href="">fermer</a>
-            <div></div>
+        <aside id="modal1" class="modal" style="display: none">
+          <div class="modal_wrapper">
+            <a class="modal_close" href=""><i class="fa-solid fa-xmark"></i></a>
+            <h2 class="modal_title">Galerie photo</h2>
+            <div class="modal_gallery" id="modal_gallery">
+              <article>
+                <img src="assets/images/abajour-tahina.png" alt="dd" />
+              </article>
+              <!-- image test 2 -->
+              <article>
+                <img src="assets/images/abajour-tahina.png" alt="dd" />
+              </article>
+              <!-- img test 3 -->
+              <article>
+                <img src="assets/images/abajour-tahina.png" alt="dd" />
+              </article>
+              <!-- img test 4 -->
+              <article>
+                <img src="assets/images/abajour-tahina.png" alt="dd" />
+              </article>
+              <!-- img test 5 -->
+              <article>
+                <img src="assets/images/abajour-tahina.png" alt="dd" />
+              </article>
+              <!-- img test 5 -->
+              <article>
+                <img src="assets/images/abajour-tahina.png" alt="dd" />
+              </article>
+            </div>
+            <button>Ajouter une photo</button>
           </div>
         </aside>
         <!-- categories etape 2 -->
