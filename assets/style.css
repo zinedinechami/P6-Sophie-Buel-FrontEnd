@@ -344,7 +344,7 @@ a {
 	background-color: white;
 	border-radius: 10px;
 	padding: 20px;
-
+	text-align: center;
 }
 
 .modal_title {
@@ -366,7 +366,7 @@ a {
 
 .modal_gallery {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
 	column-gap: 1em;
 
 }
@@ -388,12 +388,11 @@ a {
 }
 
 .modal_wrapper button {
+	align-items: center;
 	justify-content: center;
 	background-color: #1D6154;
 	color: whitesmoke;
-	text-decoration: none;
-	border: 0;
-	outline: none;
+	border: 0;;
 	font-family: 'syne';
 	height: 37px;
 	border-radius: 60px;
