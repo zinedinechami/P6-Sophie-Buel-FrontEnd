@@ -24,6 +24,9 @@ const closeModal = function(event) {
 modal_button.addEventListener('click', openModal)
 
 
+
+
+
 const Modal_gallery_section = document.getElementById('modal_gallery');
 
 function getWorksModal (){
