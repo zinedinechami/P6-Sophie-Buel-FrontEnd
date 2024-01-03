@@ -89,5 +89,18 @@ function showFilters () {
     }
 
 };
+
+const token = window.sessionStorage.getItem("token")
+
+console.log(token);
     
+function showModal () {
+if (token) {
+    const modal_section = document.getElementById('insert_modal');
+    console.log(modal_section)
+    modal_section.innerHTML += `<a class="js-modal" href="#modal1"><i class="fa-regular fa-pen-to-square"></i>modifier</a>`
+}
+}
+
+showModal ();
 

@@ -39,7 +39,7 @@ loginForm.addEventListener('submit', function(event) {
             // si le le token est recupéré, (grace au parametre data et à la clé ".token")
             if (data.token) {
             // on récupere le token dans le storage local
-            window.localStorage.setItem("token", data.token);
+            window.sessionStorage.setItem("token", data.token);
             console.log(data.token);
             // puis on redirige l'utilisateur vers le page principal
             window.location = "index.html"
