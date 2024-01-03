@@ -9,7 +9,7 @@ const openModal = function (event) {
     modal = target
     modal.addEventListener('click', closeModal)
     modal.querySelector('.modal_close').addEventListener('click', closeModal)
-
+    modal.querySelector('.modal_stop').addEventListener('click', stopPropagation)
 }
 
 const closeModal = function(event) {
@@ -18,7 +18,12 @@ const closeModal = function(event) {
     modal.style.display = "none"
     modal.removeEventListener('click', closeModal)
     modal.querySelector('.modal_close').removeEventListener('click', closeModal)
+    modal.querySelector('.modal_stop').removeEventListener('click', stopPropagation)
     modal = null
+}
+
+const stopPropagation = function (event) {
+    event.stopPropagation()
 }
 
 modal_button.addEventListener('click', openModal)
