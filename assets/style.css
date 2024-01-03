@@ -342,9 +342,6 @@ a {
 	width: 600px;
 	background-color: white;
 	border-radius: 10px;
-	padding: 20px;
-	text-align: center;
-
 }
 
 .modal_title {
@@ -353,21 +350,22 @@ a {
 	font-family: inherit;
 	color: black;
 	font-weight: lighter;
-	padding-top: 1.5em;
+	padding-top: 1em;
 	padding-bottom: 2em;
 }
 
 .modal_close {
 	display: flex;
 	justify-content: right;
+	padding-right: 2em;
+	padding-top: 1em;
 }
 
 
 .modal_gallery {
 	display: grid;
-	row-gap: 0;
 	grid-template-columns: 84px 84px 84px 84px 84px;
-	margin-left: 6.3em;
+	margin-left: 6.2em;
 }
 
 .modal_gallery article {
@@ -384,6 +382,25 @@ a {
 	height: 100px;
 	padding: 0;
 	margin: 0;
+	position: fixed;
+}
+
+.modal_delete_icon {
+	position: relative;
+	top: 5px;
+	left: 50px;
+	font-size: 10px;
+	display: flex;
+	width: 17px;
+	height: 17px;
+	color: white;
+	background-color: black;
+	align-items: center;
+	border-radius: 2px;
+}
+
+.modal_delete_icon i {
+	padding: 3.6px;
 }
 
 .modal_wrapper button {
@@ -401,6 +418,9 @@ a {
 	text-decoration: none;
 	outline: none;
 	cursor: pointer;
+	margin-left: 13.5em;
+	margin-bottom: 2em;
+
 }
 
 .modal_wrapper hr {

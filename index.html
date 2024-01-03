@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./assets/style.css" />
     <script src="script.js" defer></script>
     <script src="modal_script.js" defer></script>
+    <!-- <script src="login_script.js" defer></script> -->
   </head>
   <body>
     <header>
@@ -72,9 +73,13 @@
             <a class="modal_close" href=""><i class="fa-solid fa-xmark"></i></a>
             <h2 class="modal_title">Galerie photo</h2>
             <div class="modal_gallery" id="modal_gallery">
-              <!-- <article>
+              <!-- structure des travaux présentée dans la modal récupéré depuis l'API works -->
+              <article>
                 <img src="assets/images/abajour-tahina.png" alt="dd" />
-              </article> -->
+                <a class="modal_delete_icon" href=""
+                  ><i class="fa-solid fa-trash-can"></i>
+                </a>
+              </article>
             </div>
             <hr />
             <button>Ajouter une photo</button>

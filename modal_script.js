@@ -1,6 +1,7 @@
 // récupération du button modal
 const modal_button = document.querySelector(".js-modal");
 
+
 // variable null (aucune valeur n'y est associé) par defaut permettant de savoir quel est la modal actuellemnt ouverte
 // (ex: on pourra ensuite associer des variables modales spécifique pour savoir sur quel modale les actions se produisent)
 let modal = null;
@@ -64,6 +65,9 @@ function getWorksModal (){
             for (let work in data) { 
             Modal_gallery_section.innerHTML += `<article>
             <img src="${data[work].imageUrl}" alt="${data[work].title}" />
+            <a class="modal_delete_icon" href=""
+            ><i class="fa-solid fa-trash-can"></i>
+          </a>
           </article>`
         }
         } )
