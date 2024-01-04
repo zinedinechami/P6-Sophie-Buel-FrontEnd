@@ -1,4 +1,6 @@
 // récupération du button modal
+const Modal_gallery_section = document.getElementById('modal_gallery');
+
 const modal_button = document.querySelector(".js-modal");
 
 
@@ -49,28 +51,3 @@ const stopPropagation = function (event) {
 // event listeners du button modal
 modal_button.addEventListener('click', openModal);
 
-
-
-
-// recupération des images des works dans la modale
-const Modal_gallery_section = document.getElementById('modal_gallery');
-
-function getWorksModal (){
-    fetch (api_url + "/works")
-        .then (function (response) {
-            return response.json ()
-        })
-        .then(function (data) {
-            console.log(data)
-            for (let work in data) { 
-            Modal_gallery_section.innerHTML += `<article data-${data[work].id}>
-            <img src="${data[work].imageUrl}" alt="${data[work].title}" />
-            <a class="modal_delete_icon" href=""
-            ><i class="fa-solid fa-trash-can"></i>
-          </a>
-          </article>`
-        }
-        } )
-    } ;
-
-getWorksModal();

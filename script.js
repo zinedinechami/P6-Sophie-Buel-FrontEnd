@@ -25,6 +25,14 @@ fetch (api_url + "/works")
         <figcaption>${data[work].title}</figcaption>
     </figure>`
     }
+    for (let work in data) { 
+        Modal_gallery_section.innerHTML += `<article data-${data[work].id}>
+        <img src="${data[work].imageUrl}" alt="${data[work].title}" />
+        <a class="modal_delete_icon" href=""
+        ><i class="fa-solid fa-trash-can"></i>
+      </a>
+      </article>`
+    }
     } )
 } ;
 
