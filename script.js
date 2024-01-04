@@ -94,6 +94,10 @@ function showFilters () {
 const token = window.sessionStorage.getItem("token")
 
 console.log(token);
+
+const modal_nav = document.getElementById("modal_nav");
+
+console.log(modal_nav)
     
 
 if (token) {
@@ -101,5 +105,6 @@ if (token) {
     console.log(modal_section)
     modal_section.innerHTML += `<a class="js-modal" href="#modal1"><i class="fa-regular fa-pen-to-square"></i>modifier</a>`
     category_section.style.display = "none";
+    modal_nav.style.display = null;
 };
 
