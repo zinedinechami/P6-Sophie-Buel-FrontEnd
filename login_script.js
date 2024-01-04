@@ -38,19 +38,15 @@ loginForm.addEventListener('submit', function(event) {
             console.log(data)
             // si le le token est recupéré, (grace au parametre data et à la clé ".token")
             if (data.token) {
-            // on récupere le token dans le storage local
+            // on récupere le token pour la session en cours
             window.sessionStorage.setItem("token", data.token);
             console.log(data.token);
             // puis on redirige l'utilisateur vers le page principal
             window.location = "index.html"
-            // add modal button
-            // modal_login.innerHTML += `<a class="js-modal" href="#modal1"
-            // ><i class="fa-regular fa-pen-to-square"></i>modifier</a>`
-            // remove filter section
         } else {
             // si la condition n'est pas complétée on affiche un message d'erreur
             error_message.classList.replace("inactive", "active");
-            console.log("error")
+            console.log("Erreur dans l`identifiant ou le mot de passe")
         }
         });
 });

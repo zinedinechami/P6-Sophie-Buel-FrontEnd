@@ -32,10 +32,10 @@ fetch (api_url + "/works")
 getWorks();
 
 
+// recuperation des categories depuis l'API
 
 const category_section = document.getElementById("filters");
 
-function getCategories (){
     fetch (api_url + "/categories")
         .then (function (response) {
             return response.json ()
@@ -50,10 +50,8 @@ function getCategories (){
             category_section.appendChild(filterButton)
         }
         return showFilters();
-        } )
-    } ;
+        } );
 
-getCategories();
 
 
 
@@ -90,18 +88,18 @@ function showFilters () {
 
 };
 
+
+
+// affichage des elements nécassaire aprés l'authentification user
 const token = window.sessionStorage.getItem("token")
 
 console.log(token);
     
-function showModal () {
+
 if (token) {
     const modal_section = document.getElementById('insert_modal');
     console.log(modal_section)
     modal_section.innerHTML += `<a class="js-modal" href="#modal1"><i class="fa-regular fa-pen-to-square"></i>modifier</a>`
     category_section.style.display = "none";
-}
-}
-
-showModal ();
+};
 
