@@ -51,3 +51,15 @@ const stopPropagation = function (event) {
 // event listeners du button modal
 modal_button.addEventListener('click', openModal);
 
+// delete modal function
+const modal_delete = document.getElementByaId("modal_delete");
+
+console.log(modal_delete);
+
+modal_delete.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    let modal_works = document.querySelectorAll("modal_gallery article");
+    console.log(modal_works);
+}
+)
