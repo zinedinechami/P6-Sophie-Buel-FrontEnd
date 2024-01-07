@@ -26,10 +26,10 @@ fetch (api_url + "/works")
     </figure>`
     }
     for (let work in data) { 
-        Modal_gallery_section.innerHTML += `<article data-${data[work].id}>
+        Modal_gallery_section.innerHTML += `<article>
         <img src="${data[work].imageUrl}" alt="${data[work].title}" />
-        <a id="modal_delete" class="modal_delete_icon" href=""
-        ><i class="fa-solid fa-trash-can"></i>
+        <a data-${data[work].id} id="modal_delete" class="modal_delete_icon">
+        <i class="fa-solid fa-trash-can"></i> 
       </a>
       </article>`
     }

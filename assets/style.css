@@ -405,10 +405,11 @@ a {
 	background-color: black;
 	align-items: center;
 	border-radius: 2px;
+	cursor: pointer;
 }
 
 .modal_delete_icon i {
-	padding: 3.6px;
+	padding-left: 3.7px;
 }
 
 .modal_wrapper button {
