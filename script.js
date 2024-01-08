@@ -1,11 +1,11 @@
 //  variables
-const api_url = 'http://localhost:5678/api';
+const api_url = 'http://localhost:5678/api/';
 
 const gallery_section = document.getElementById("gallery");
 
 // fonction recupereant les informations de l'API, les traitent en format JSON, puis integre les informations lié au travaux au dom dynammiqement
 function getWorks (){
-fetch (api_url + "/works")
+fetch (api_url + "works")
     // retourne la promese avec la methode "then()"
     // si elle est reussi on met en place une fonction anonyme(on peut aussi utiliser des fonctions fléchées à la place) qui retourne la réponse en JSON avec la méthode ".json ()
     .then (function (response) {
@@ -28,23 +28,48 @@ fetch (api_url + "/works")
     for (let work in data) { 
         Modal_gallery_section.innerHTML += `<article>
         <img src="${data[work].imageUrl}" alt="${data[work].title}" />
-        <a data-${data[work].id} id="modal_delete" class="modal_delete_icon">
+        <span id="${data[work].id}" class="modal_delete_icon">
         <i class="fa-solid fa-trash-can"></i> 
-      </a>
+      </span>
       </article>`
     }
+    return deleteWorks();
     } )
 } ;
 
 // permet de lancer la fonction écrite aupart avant
 getWorks();
 
+function deleteWorks () {
+     const modal_delete = document.querySelectorAll(".modal_delete_icon");
+     console.log (modal_delete);
+
+    for (let suppresion of modal_delete){
+
+        suppresion.addEventListener("click", function(event) {
+        event.preventDefault();
+        const id = suppresion.id
+
+        fetch(api_url + "works/" + id ,{
+        method: "DELETE",
+        headers: {Authorization: `Bearer ${token}`},
+        } )
+        
+        .then (function (data) {
+            console.log("Le delete à été éffectué voici le data :", data)})
+        })
+    }
+}
+
+
+
+
 
 // recuperation des categories depuis l'API
 
 const category_section = document.getElementById("filters");
 
-    fetch (api_url + "/categories")
+    fetch (api_url + "categories")
         .then (function (response) {
             return response.json ()
         })
