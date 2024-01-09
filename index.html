@@ -70,16 +70,49 @@
             ><i class="fa-regular fa-pen-to-square"></i>modifier</a
           > -->
         </div>
-        <!-- boite modal -->
+        <!-- page modal -->
         <aside id="modal1" class="modal" style="display: none">
+          <!-- boite modal -->
           <div class="modal_wrapper modal_stop">
+            <!-- bouton fermer modal -->
             <a class="modal_close" href=""><i class="fa-solid fa-xmark"></i></a>
-            <h2 class="modal_title">Galerie photo</h2>
-            <div class="modal_gallery" id="modal_gallery">
-              <!-- structure des travaux présentée dans la modal récupéré depuis l'API works -->
+            <!-- modal suppresion photo -->
+            <div id="modal_gallery_photo">
+              <h2 class="modal_title">Galerie photo</h2>
+              <div class="modal_gallery" id="modal_gallery">
+                <!-- <article>
+                  <img src="${data[work].imageUrl}" alt="${data[work].title}" />
+                  <span id="${data[work].id}" class="modal_delete_icon">
+                  <i class="fa-solid fa-trash-can"></i> 
+                </span>
+                </article> -->
+              </div>
+              <hr />
+              <button id="open_modal_ajout">Ajouter une photo</button>
             </div>
-            <hr />
-            <button>Ajouter une photo</button>
+            <!-- modal ajout photo -->
+            <div id="modal_ajout_photo" style="display: none">
+              <a class="modal_return"><i class="fa-solid fa-arrow-left"></i></a>
+              <h2 class="modal_title">Ajout Photo</h2>
+              <form action="">
+                <label>
+                  + Ajouter Photo
+                  <input
+                    type="file"
+                    name=""
+                    id=""
+                    accept="image/png, image/jpeg"
+                  />
+                </label>
+                <input type="text" name="" id="" />
+                <select>
+                  <option value="optionOne">Option 1</option>
+                  <option value="optionTwo">Option 2</option>
+                  <option value="optionThree">Option 3</option>
+                  <option value="optionFour">Option 4</option>
+                </select>
+              </form>
+            </div>
           </div>
         </aside>
         <!-- categories/filtres -->

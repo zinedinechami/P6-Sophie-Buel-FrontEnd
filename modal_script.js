@@ -52,3 +52,24 @@ const stopPropagation = function (event) {
 modal_button.addEventListener('click', openModal);
 
 
+// ouverture content modal ajout photo
+
+const section_modal_gallery = document.getElementById("modal_gallery_photo");
+
+const section_ajout_modal = document.getElementById("modal_ajout_photo");
+
+
+const button_modal_ajout = document.getElementById("open_modal_ajout");
+
+
+
+function openModalAjout (){
+    section_modal_gallery.style.display = "none";
+    section_ajout_modal.style.display = null;
+
+}
+
+
+
+button_modal_ajout.addEventListener('click', openModalAjout)
+
