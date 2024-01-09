@@ -94,23 +94,28 @@
             <div id="modal_ajout_photo" style="display: none">
               <a class="modal_return"><i class="fa-solid fa-arrow-left"></i></a>
               <h2 class="modal_title">Ajout Photo</h2>
-              <form action="">
-                <label>
-                  + Ajouter Photo
-                  <input
-                    type="file"
-                    name=""
-                    id=""
-                    accept="image/png, image/jpeg"
-                  />
-                </label>
-                <input type="text" name="" id="" />
-                <select>
-                  <option value="optionOne">Option 1</option>
-                  <option value="optionTwo">Option 2</option>
-                  <option value="optionThree">Option 3</option>
-                  <option value="optionFour">Option 4</option>
+              <form class="modal_form" action="">
+                <div class="modal_img">
+                  <button id="modal_img_btn">
+                    + Ajouter Photo
+                    <input
+                      type="file"
+                      name=""
+                      id=""
+                      accept="image/png, image/jpeg"
+                    />
+                  </button>
+                </div>
+                <label>Titre</label>
+                <input class="modal_form_inputs" type="text" name="" id="" />
+                <label>Catégories</label>
+                <select class="modal_form_inputs">
+                  <option value=""></option>
+                  <option value="1">Objets</option>
+                  <option value="2">Appartements</option>
+                  <option value="3">Hotels et restauratants</option>
                 </select>
+                <button id="modal_form_submit" type="submit">Valider</button>
               </form>
             </div>
           </div>

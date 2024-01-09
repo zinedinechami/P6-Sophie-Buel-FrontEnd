@@ -441,3 +441,60 @@ a {
 }
 
 /* modal ajout photo */
+
+.modal_return {
+	padding-left: 1em;
+	font-size: 20px;
+}
+
+.modal_form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal_form label {
+	justify-content: flex-start;
+	padding-top: 2em;
+
+}
+
+
+#modal_img_btn {
+	width: 170px;
+	background-color: #B3B3B3;
+	color: #1D6154;
+}
+
+#modal_img_btn input {
+	visibility: hidden;
+}
+
+/* .modal_form input {
+	width: 380px;
+	height: 50px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	border: none;
+	outline: none;
+	font-family: 'work sans';
+
+} */
+
+.modal_form_inputs {
+	width: 420px;
+	height: 50px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	border: none;
+	outline: none;
+	font-family: 'work sans';
+
+}
+
+#modal_form_submit {
+	margin: 0;
+	width: 230px;
+	background-color: grey;
+	margin-top: 2em;
+	margin-bottom: 3em;
+}
