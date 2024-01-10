@@ -94,24 +94,36 @@
             <div id="modal_ajout_photo" style="display: none">
               <a class="modal_return"><i class="fa-solid fa-arrow-left"></i></a>
               <h2 class="modal_title">Ajout photo</h2>
-              <form class="modal_form" action="">
+              <form class="modal_form" id="modal_form" action="">
+                <!-- image input -->
                 <div class="modal_img">
                   <i class="fa-regular fa-image"></i>
                   <label id="modal_img_btn">
                     + Ajouter photo
                     <input
                       type="file"
-                      name=""
-                      id=""
+                      name="image"
+                      id="modal_input_img"
                       accept="image/png, image/jpeg"
                     />
                   </label>
                   <p>jpg,png : 4mo max</p>
                 </div>
+                <!-- title input -->
                 <p class="form_input_titles">Titre</p>
-                <input class="modal_form_inputs" type="text" name="" id="" />
+                <input
+                  class="modal_form_inputs"
+                  type="text"
+                  name="title"
+                  id="modal_input_title"
+                />
+                <!-- categories input -->
                 <p class="form_input_titles">Catégories</p>
-                <select class="modal_form_inputs">
+                <select
+                  class="modal_form_inputs"
+                  id="modal_input_categories"
+                  name="category"
+                >
                   <option value=""></option>
                   <option value="1">Objets</option>
                   <option value="2">Appartements</option>

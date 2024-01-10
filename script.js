@@ -40,6 +40,7 @@ fetch (api_url + "works")
 // permet de lancer la fonction écrite aupart avant
 getWorks();
 
+
 function deleteWorks () {
      const modal_delete = document.querySelectorAll(".modal_delete_icon");
      console.log (modal_delete);
@@ -50,17 +51,22 @@ function deleteWorks () {
         event.preventDefault();
         const id = suppresion.id
 
+        const figureElement = event.target.closest("figure");
+
         fetch(api_url + "works/" + id ,{
         method: "DELETE",
         headers: {Authorization: `Bearer ${token}`},
         } )
         
-        .then (function (data) {
-            console.log("Le delete à été éffectué voici le data :", data)})
+        .then(response => {
+            if (response.ok) {
+                figureElement.remove();
+            }
+        })
+
         })
     }
-}
-
+};
 
 
 
@@ -141,3 +147,46 @@ if (token) {
     modal_nav.style.display = null;
 };
 
+
+
+
+// récuperation des inputs pour l'ajout des works
+const modal_form = document.getElementById("modal_form")
+
+const modal_input_image = document.getElementById("modal_input_img")
+
+const modal_input_title = document.getElementById("modal_input_title")
+
+const modal_input_categories = document.getElementById("modal_input_categories")
+
+
+// ajout des works
+modal_form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const modalFormData = new FormData(modal_form);
+
+    modalFormData.append("image", modal_input_image)
+    modalFormData.append("title", modal_input_title)
+    modalFormData.append("categoryId", modal_input_categories)
+
+    for (item of modalFormData){
+        console.log(item[0], item[1])
+    }
+    
+    fetch (api_url + "works", {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 
+        'Content-Type': 'application/json' },
+        body: modalFormData, 
+    })
+
+    .then (function (response) {
+        return response.json()
+    })
+    .then (function (data) {
+        console.log(data)
+        return getWorks
+    })
+
+})
