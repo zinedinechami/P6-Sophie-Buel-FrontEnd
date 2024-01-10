@@ -445,6 +445,7 @@ a {
 .modal_return {
 	padding-left: 1em;
 	font-size: 20px;
+	cursor: pointer;
 }
 
 .modal_form {

@@ -73,3 +73,11 @@ function openModalAjout (){
 
 button_modal_ajout.addEventListener('click', openModalAjout)
 
+const button_modal_retour = document.querySelector(".modal_return")
+
+function returnModal() {
+    section_modal_gallery.style.display = null;
+    section_ajout_modal.style.display = "none";
+}
+
+button_modal_retour.addEventListener('click', returnModal)
