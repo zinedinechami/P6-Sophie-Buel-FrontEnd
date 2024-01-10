@@ -96,7 +96,8 @@
               <h2 class="modal_title">Ajout Photo</h2>
               <form class="modal_form" action="">
                 <div class="modal_img">
-                  <button id="modal_img_btn">
+                  <i class="fa-regular fa-image"></i>
+                  <label id="modal_img_btn">
                     + Ajouter Photo
                     <input
                       type="file"
@@ -104,11 +105,12 @@
                       id=""
                       accept="image/png, image/jpeg"
                     />
-                  </button>
+                  </label>
+                  <p>jpg,png : 4mo max</p>
                 </div>
-                <label>Titre</label>
+                <p class="form_input_titles">Titre</p>
                 <input class="modal_form_inputs" type="text" name="" id="" />
-                <label>Catégories</label>
+                <p class="form_input_titles">Catégories</p>
                 <select class="modal_form_inputs">
                   <option value=""></option>
                   <option value="1">Objets</option>
