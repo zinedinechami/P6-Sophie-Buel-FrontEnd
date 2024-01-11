@@ -54,25 +54,21 @@ function deleteWorks() {
       const id = suppresion.id;
 
       // on recupere tout les elements contenant l'affichage des works pour une suppresion sans refresh
-      const figureElement = event.target.closest("figure");
+      // const figureElement = event.target.closest("figure");
       const articleElement = event.target.closest("article");
+      console.log(articleElement);
 
       // on appelle l'api works contenant la valeur de l'id de la poubelle sur lequel on a cliqué
       fetch(api_url + "works/" + id, {
         // on fait passer la methode delete pour supprimer les elements associé a l'id choisi
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
-      })
-        // si les bons inputs sont rentrée on retourne les informations en json
-        .then(function (response) {
-          return response.json();
-        })
-        // et si les info en JSON sont retournée on retourne ses info sous le param data, permettant de visualiser les info
-        .then(function (data) {
-          console.log("work is deleted here is the data", data);
-          figureElement.remove();
+      }).then(function (response) {
+        console.log(response);
+        if (response.ok) {
           articleElement.remove();
-        });
+        }
+      });
     });
   }
 }
@@ -150,6 +146,7 @@ if (token) {
 const modal_form = document.getElementById("modal_form");
 
 const modal_input_image = document.getElementById("modal_input_img");
+console.log(modal_input_image);
 
 const modal_input_title = document.getElementById("modal_input_title");
 
@@ -172,11 +169,15 @@ modal_form.addEventListener("submit", function (event) {
   // const modalChargeUtile = JSON.stringify(modalFormData);
 
   // variable qui recupere les valeur des clés et des inputs grace a la methode FormData
-  const modalFormData = new FormData(modal_form);
+  const modalFormData = new FormData();
+  console.log(modalFormData);
 
-  modalFormData.append("image", modal_input_image);
-  modalFormData.append("title", modal_input_title);
-  modalFormData.append("category", modal_input_categories);
+  modalFormData.append("image", modal_input_image.files[0]);
+  modalFormData.append("title", modal_input_title.value);
+  modalFormData.append("category", modal_input_categories.value);
+
+  console.log(modal_input_categories.value);
+  console.log("etape 3", modal_input_image.files[0]);
 
   // on boucle sur la variable avec le param item, permettant de voir dans la console le contenu des inputs
   for (item of modalFormData) {
@@ -187,8 +188,12 @@ modal_form.addEventListener("submit", function (event) {
   fetch(api_url + "works", {
     // methode post pout poster le contenu du forms recupéré avant
     method: "POST",
-    headers: { Authorization: `Bearer ${token}` },
-    body: modalChargeUtile,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      accept: "application/json",
+      ContentType: "multipart/form-data",
+    },
+    body: modalFormData,
   })
     // si les bons inputs sont rentrée on retourne les informations en json
     .then(function (response) {
