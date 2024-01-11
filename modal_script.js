@@ -3,10 +3,11 @@ const Modal_gallery_section = document.getElementById("modal_gallery");
 
 const modal_button = document.querySelector(".js-modal");
 
-// variable null (aucune valeur n'y est associé) par defaut permettant de savoir quel est la modal actuellemnt ouverte
-// (ex: on pourra ensuite associer des variables modales spécifique pour savoir sur quel modale les actions se produisent)
+// variable null (aucune valeur n'y est associé) par defaut permettant d'associer une target à la modal
+// (ex: on pourra ensuite associer des variables target spécifique pour savoir sur quel modale les actions se produisent)
 let modal = null;
 
+// OPEN MODAL
 // function afficher la modale
 const openModal = function (event) {
   // bloque le comportement habtituelle du navigateur (ex: le lien modal button va servir à afficher un element)
@@ -25,7 +26,7 @@ const openModal = function (event) {
   modal.querySelector(".modal_stop").addEventListener("click", stopPropagation);
 };
 
-// function cacher la modale
+// HIDE MODAL
 // cet function va inverser tout le processus openModal permettant de revenir au comportement normal de la page
 const closeModal = function (event) {
   event.preventDefault();
@@ -50,6 +51,7 @@ const stopPropagation = function (event) {
 // event listeners du button modal
 modal_button.addEventListener("click", openModal);
 
+// OPEN NEW MODAL
 // ouverture content modal ajout photo
 
 const section_modal_gallery = document.getElementById("modal_gallery_photo");
@@ -65,7 +67,7 @@ function openModalAjout() {
 
 button_modal_ajout.addEventListener("click", openModalAjout);
 
-// button return modal
+// RETURN TO MODAL
 const button_modal_retour = document.querySelector(".modal_return");
 
 function returnModal() {

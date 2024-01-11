@@ -1,4 +1,4 @@
-//  variables
+// GET WORKS
 const api_url = "http://localhost:5678/api/";
 
 const gallery_section = document.getElementById("gallery");
@@ -36,35 +36,49 @@ function getWorks() {
       return deleteWorks();
     });
 }
-
-// permet de lancer la fonction écrite aupart avant
 getWorks();
 
+// DELETE WORKS
+// fonction delete works qui se lancent apres la récuperation des works
 function deleteWorks() {
+  // on recupere tout les icones poubelles
   const modal_delete = document.querySelectorAll(".modal_delete_icon");
   console.log(modal_delete);
 
+  // puis on boucle sur toutes les poubelles avec le param suppresion
   for (let suppresion of modal_delete) {
+    // on y ajoute des event listeners qui opere une function au clic
     suppresion.addEventListener("click", function (event) {
       event.preventDefault();
+      // on récupere les id des poubelles qui correspondent au id des works
       const id = suppresion.id;
 
+      // on recupere tout les elements contenant l'affichage des works pour une suppresion sans refresh
       const figureElement = event.target.closest("figure");
+      const articleElement = event.target.closest("article");
 
+      // on appelle l'api works contenant la valeur de l'id de la poubelle sur lequel on a cliqué
       fetch(api_url + "works/" + id, {
+        // on fait passer la methode delete pour supprimer les elements associé a l'id choisi
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
-      }).then((response) => {
-        if (response.ok) {
+      })
+        // si les bons inputs sont rentrée on retourne les informations en json
+        .then(function (response) {
+          return response.json();
+        })
+        // et si les info en JSON sont retournée on retourne ses info sous le param data, permettant de visualiser les info
+        .then(function (data) {
+          console.log("work is deleted here is the data", data);
           figureElement.remove();
-        }
-      });
+          articleElement.remove();
+        });
     });
   }
 }
 
+// GET CATEGORIES
 // recuperation des categories depuis l'API
-
 const category_section = document.getElementById("filters");
 
 fetch(api_url + "categories")
@@ -83,6 +97,7 @@ fetch(api_url + "categories")
     return showFilters();
   });
 
+// SHOW WORKS BY FILTER
 // fonction permettant le fonctionnement des boutons filtres, se referant au data-sets des figures, qui sont récupéres dans la fonction GetWorks
 function showFilters() {
   // on récupere tout les buttons filtres
@@ -114,13 +129,12 @@ function showFilters() {
   }
 }
 
+// GET TOKEN FOR WORKS MODIFICATION
 // affichage des elements nécassaire aprés l'authentification user
 const token = window.sessionStorage.getItem("token");
-
 console.log(token);
 
 const modal_nav = document.getElementById("modal_nav");
-
 console.log(modal_nav);
 
 if (token) {
@@ -131,6 +145,7 @@ if (token) {
   modal_nav.style.display = null;
 }
 
+// ADD WORKS
 // récuperation des inputs pour l'ajout des works
 const modal_form = document.getElementById("modal_form");
 
@@ -142,31 +157,44 @@ const modal_input_categories = document.getElementById(
   "modal_input_categories"
 );
 
-// ajout des works
+// event listener bouton submit du form
 modal_form.addEventListener("submit", function (event) {
   event.preventDefault();
 
+  // récuperation des valeur et des clés des inputs du form
+  // const modalFormData = {
+  //   image: modal_input_image.value,
+  //   title: modal_input_title.value,
+  //   category: modal_input_categories.value,
+  // };
+
+  // on convertit l'objet en json pour interagir avec l'API
+  // const modalChargeUtile = JSON.stringify(modalFormData);
+
+  // variable qui recupere les valeur des clés et des inputs grace a la methode FormData
   const modalFormData = new FormData(modal_form);
 
   modalFormData.append("image", modal_input_image);
   modalFormData.append("title", modal_input_title);
-  modalFormData.append("categoryId", modal_input_categories);
+  modalFormData.append("category", modal_input_categories);
 
+  // on boucle sur la variable avec le param item, permettant de voir dans la console le contenu des inputs
   for (item of modalFormData) {
     console.log(item[0], item[1]);
   }
 
+  // recupération de l'API
   fetch(api_url + "works", {
+    // methode post pout poster le contenu du forms recupéré avant
     method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-    body: modalFormData,
+    headers: { Authorization: `Bearer ${token}` },
+    body: modalChargeUtile,
   })
+    // si les bons inputs sont rentrée on retourne les informations en json
     .then(function (response) {
       return response.json();
     })
+    // et si les info en JSON sont retournée on retourne ses info sous le param data, permettant de visualiser les info
     .then(function (data) {
       console.log(data);
       return getWorks;

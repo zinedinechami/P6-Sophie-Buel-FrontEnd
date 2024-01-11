@@ -1,11 +1,10 @@
-// login variables
+// login form and inputvariables
 const loginForm = document.getElementById("login");
 let loginEmail = document.getElementById("email");
 let loginPassword = document.getElementById("password");
 let error_message = document.getElementById("error");
-// const modal_login = document.querySelector("modal_title");
 
-// ajout d'un event listeners bouton contenant le type submit
+// ajout d'un event listeners sur le form s'operant lors de l'appuie du bouton submit
 loginForm.addEventListener("submit", function (event) {
   // habituellement le naviagateur va envoyer les info du form au serveur et se rafrachir
   // ici on va bloquer le comportement par defaut pour nous occuper nous meme de la soumission du form (pour un fetch par ex)
