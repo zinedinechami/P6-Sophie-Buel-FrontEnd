@@ -320,6 +320,10 @@ a {
 	text-align: center;
 }
 
+.modal_nav i {
+	padding-right: 0.5em;
+}
+
 .modal_title {
 	display: flex;
 	justify-content: center;
@@ -367,6 +371,11 @@ a {
 	justify-content: right;
 	padding-right: 2em;
 	padding-top: 1em;
+}
+
+.modal_close i {
+	margin-top: 1em;
+	font-weight: 24px;
 }
 
 
@@ -444,6 +453,7 @@ a {
 
 .modal_return {
 	padding-left: 1em;
+	margin: 0;
 	font-size: 20px;
 	cursor: pointer;
 }
@@ -455,16 +465,10 @@ a {
 	align-items: center;
 }
 
-.modal_form label {
-	justify-content: flex-start;
-	padding-top: 2em;
-
-}
-
 .modal_img {
 	width: 420px;
-	height: 170px;
 	background-color: aliceblue;
+	margin-bottom: 1.5em;
 }
 
 .modal_img i {
@@ -473,21 +477,24 @@ a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding-top: 20px;
+	padding-bottom: 10px;
 }
 
 #modal_img_btn {
 	display: flex;
 	flex-direction: column;
 	padding: 0;
-	padding-left: 2.2em;
-	padding-top: 1.5em;
+	padding-left: 2.25em;
+	padding-top: 1em;
+	padding-bottom: 0;
 	margin-left: auto;
 	margin-right: auto;
 	width: 145px;
-	height: 35px;
+	height: 30px;
 	border-radius: 50px;
 	background-color: #CBD6DC;
-	color: #1D6154;
+	color: #306685;
 	font-weight: bold;
 	cursor: pointer;
 }
@@ -497,17 +504,16 @@ a {
 	justify-content: center;
 	align-items: center;
 	padding-top: 1em;
+	padding-bottom: 20px;
 }
 
 #modal_img_btn input {
-	visibility: hidden;	
+	visibility: collapse;	
 }
 
-.form_input_titles {
+.form_input_titles p {
 	padding-top: 1em;
 	padding-bottom: 0.5em;
-	display: flex;
-	justify-content: right;
 }
 
 .modal_form_inputs {
@@ -522,7 +528,7 @@ a {
 #modal_form_submit {
 	margin: 0;
 	width: 230px;
-	background-color: grey;
+	background-color: #A7A7A7;
 	margin-top: 2em;
 	margin-bottom: 3em;
 }
