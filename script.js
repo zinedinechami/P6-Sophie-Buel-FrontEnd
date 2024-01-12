@@ -20,7 +20,7 @@ function getWorks() {
       // "work" est une variable de la boucle, qui premet d'extraire la valeur souhaitée à partir du nom de la propriété depuis les objets "data"
       for (let work in data) {
         // creation de data set se referant au categoryId dans l'API, se refereant au nom des Id des filtres
-        gallery_section.innerHTML += `<figure data-${data[work].categoryId} class="active">
+        gallery_section.innerHTML += `<figure id="delete" data-${data[work].categoryId} class="active">
         <img src="${data[work].imageUrl}" alt="${data[work].title}">
         <figcaption>${data[work].title}</figcaption>
     </figure>`;
@@ -56,7 +56,8 @@ function deleteWorks() {
       // on recupere tout les elements contenant l'affichage des works pour une suppresion sans refresh
       // const figureElement = event.target.closest("figure");
       const articleElement = event.target.closest("article");
-      console.log(articleElement);
+      const figureElement = document.getElementById("delete");
+      console.log(figureElement);
 
       // on appelle l'api works contenant la valeur de l'id de la poubelle sur lequel on a cliqué
       fetch(api_url + "works/" + id, {
@@ -67,6 +68,7 @@ function deleteWorks() {
         console.log(response);
         if (response.ok) {
           articleElement.remove();
+          figureElement.remove();
         }
       });
     });
