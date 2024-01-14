@@ -189,9 +189,15 @@ modal_form.addEventListener("submit", function (event) {
     .then(function (data) {
       console.log(data);
       // creation de data set se referant au categoryId dans l'API, se refereant au nom des Id des filtres
-      gallery_section.innerHTML += `<figure id="delete" data-${data[work].categoryId} class="active">
-        <img src="${data[work].imageUrl}" alt="${data[work].title}">
-        <figcaption>${data[work].title}</figcaption>
+      gallery_section.innerHTML += `<figure id="delete" data-${data.categoryId} class="active">
+        <img src="${data.imageUrl}" alt="${data.title}">
+        <figcaption>${data.title}</figcaption>
     </figure>`;
+      Modal_gallery_section.innerHTML += `<article>
+        <img src="${data.imageUrl}" alt="${data.title}" />
+        <span id="${data.id}" class="modal_delete_icon">
+        <i class="fa-solid fa-trash-can"></i> 
+      </span>
+      </article>`;
     });
 });
