@@ -57,7 +57,10 @@ function deleteWorks() {
       // const figureElement = event.target.closest("figure");
       const articleElement = event.target.closest("article");
       const figureElement = document.getElementById("delete");
-      console.log(figureElement);
+      const parent = figureElement.parentNode;
+      // const figureElement = document.querySelectorAll("figure");
+      console.log(parent);
+      console.log(articleElement);
 
       // on appelle l'api works contenant la valeur de l'id de la poubelle sur lequel on a cliqué
       fetch(api_url + "works/" + id, {
@@ -66,10 +69,8 @@ function deleteWorks() {
         headers: { Authorization: `Bearer ${token}` },
       }).then(function (response) {
         console.log(response);
-        if (response.ok) {
-          articleElement.remove();
-          figureElement.remove();
-        }
+        articleElement.remove();
+        parent.removeChild(figureElement);
       });
     });
   }
@@ -199,5 +200,6 @@ modal_form.addEventListener("submit", function (event) {
         <i class="fa-solid fa-trash-can"></i> 
       </span>
       </article>`;
+      return deleteWorks();
     });
 });
