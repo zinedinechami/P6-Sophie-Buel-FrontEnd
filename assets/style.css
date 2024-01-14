@@ -509,6 +509,14 @@ a {
 	visibility: collapse;	
 }
 
+#modal_display_img {
+	height: 100%;
+	width: 130px;
+}
+
+
+
+
 .form_input_titles p {
 	padding-top: 1em;
 	padding-bottom: 0.5em;

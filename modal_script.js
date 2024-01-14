@@ -76,3 +76,19 @@ function returnModal() {
 }
 
 button_modal_retour.addEventListener("click", returnModal);
+
+// MODAL AJOUT IMG PREVIEW
+
+// const modal_input_image = document.getElementById("modal_input_img");
+// let uploaded_img = "";
+
+// modal_input_image.addEventListener("change", function () {
+//   const reader = new FileReader();
+//   reader.addEventListener("load", function () {
+//     uploaded_img = reader.result;
+//     document.querySelector(
+//       "#modal_display_img"
+//     ).style.backgroundImage = `url(${uploaded_img})`;
+//     reader.readAsDataURL(this.files[0]);
+//   });
+// });

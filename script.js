@@ -160,17 +160,6 @@ const modal_input_categories = document.getElementById(
 modal_form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  // récuperation des valeur et des clés des inputs du form
-  // const modalFormData = {
-  //   image: modal_input_image.value,
-  //   title: modal_input_title.value,
-  //   category: modal_input_categories.value,
-  // };
-
-  // on convertit l'objet en json pour interagir avec l'API
-  // const modalChargeUtile = JSON.stringify(modalFormData);
-
-  // variable qui recupere les valeur des clés et des inputs grace a la methode FormData
   const modalFormData = new FormData();
   console.log(modalFormData);
 
@@ -179,12 +168,7 @@ modal_form.addEventListener("submit", function (event) {
   modalFormData.append("category", modal_input_categories.value);
 
   console.log(modal_input_categories.value);
-  console.log("etape 3", modal_input_image.files[0]);
-
-  // on boucle sur la variable avec le param item, permettant de voir dans la console le contenu des inputs
-  for (item of modalFormData) {
-    console.log(item[0], item[1]);
-  }
+  console.log(modal_input_image.files[0]);
 
   // recupération de l'API
   fetch(api_url + "works", {
@@ -204,6 +188,10 @@ modal_form.addEventListener("submit", function (event) {
     // et si les info en JSON sont retournée on retourne ses info sous le param data, permettant de visualiser les info
     .then(function (data) {
       console.log(data);
-      return getWorks;
+      // creation de data set se referant au categoryId dans l'API, se refereant au nom des Id des filtres
+      gallery_section.innerHTML += `<figure id="delete" data-${data[work].categoryId} class="active">
+        <img src="${data[work].imageUrl}" alt="${data[work].title}">
+        <figcaption>${data[work].title}</figcaption>
+    </figure>`;
     });
 });
