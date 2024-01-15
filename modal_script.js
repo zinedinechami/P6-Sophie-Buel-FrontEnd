@@ -92,3 +92,29 @@ button_modal_retour.addEventListener("click", returnModal);
 //     reader.readAsDataURL(this.files[0]);
 //   });
 // });
+
+let fileInput = document.getElementById("modal_input_img");
+
+fileInput.addEventListener("change", showModalImage);
+
+function showModalImage() {
+  let file = fileInput.files[0];
+
+  if (file) {
+    let reader = new FileReader();
+
+    reader.onload = function (event) {
+      let img = document.createElement("img");
+
+      img.src = event.target.result;
+
+      let resultDiv = document.getElementById("modal_display_img");
+      resultDiv.appendChild(img);
+
+      let hideContent = document.getElementById("modal_img_hide");
+      hideContent.style.display = "none";
+    };
+
+    reader.readAsDataURL(file);
+  }
+}

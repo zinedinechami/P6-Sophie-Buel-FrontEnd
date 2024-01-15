@@ -510,8 +510,13 @@ a {
 }
 
 #modal_display_img {
-	height: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+#modal_display_img img {
 	width: 130px;
+	height: 200px;
 }
 
 
