@@ -65,37 +65,20 @@
       <section id="portfolio">
         <div class="modal_title" id="insert_modal">
           <h2 class="portfolio_title">Mes Projets</h2>
-          <!-- button ouverture modal -->
-          <!-- <a class="js-modal" href="#modal1"
-            ><i class="fa-regular fa-pen-to-square"></i>modifier</a
-          > -->
         </div>
-        <!-- page modal -->
         <aside id="modal1" class="modal" style="display: none">
-          <!-- boite modal -->
           <div class="modal_wrapper modal_stop">
-            <!-- bouton fermer modal -->
             <a class="modal_close" href=""><i class="fa-solid fa-xmark"></i></a>
-            <!-- modal suppresion photo -->
             <div id="modal_gallery_photo">
               <h2 class="modal_title">Galerie photo</h2>
-              <div class="modal_gallery" id="modal_gallery">
-                <!-- <article>
-                  <img src="${data[work].imageUrl}" alt="${data[work].title}" />
-                  <span id="${data[work].id}" class="modal_delete_icon">
-                  <i class="fa-solid fa-trash-can"></i> 
-                </span>
-                </article> -->
-              </div>
+              <div class="modal_gallery" id="modal_gallery"></div>
               <hr />
               <button id="open_modal_ajout">Ajouter une photo</button>
             </div>
-            <!-- modal ajout photo -->
             <div id="modal_ajout_photo" style="display: none">
               <a class="modal_return"><i class="fa-solid fa-arrow-left"></i></a>
               <h2 class="modal_title">Ajout photo</h2>
               <form class="modal_form" id="modal_form" action="">
-                <!-- image input -->
                 <div class="modal_img">
                   <div id="modal_img_hide">
                     <i class="fa-regular fa-image"></i>
@@ -108,13 +91,11 @@
                         accept="image/png, image/jpeg"
                         required
                       />
-                      <!-- image preview ajout works modal -->
                     </label>
                     <p>jpg,png : 4mo max</p>
                   </div>
                   <div id="modal_display_img"></div>
                 </div>
-                <!-- title input -->
                 <div class="form_input_titles">
                   <p>Titre</p>
                   <input
@@ -126,7 +107,6 @@
                     required
                   />
                 </div>
-                <!-- categories input -->
                 <div class="form_input_titles">
                   <p>Catégorie</p>
                   <select
@@ -146,18 +126,10 @@
             </div>
           </div>
         </aside>
-        <!-- categories/filtres -->
         <div class="filters active" id="filters">
           <button id="all">Tous</button>
-          <!-- images works -->
         </div>
-        <div class="gallery" id="gallery">
-          <!-- structure des travaux récupéré depuis l'API works -->
-          <!-- <figure data-${data[work].categoryId} class="active">
-        <img src="${data[work].imageUrl}" alt="${data[work].title}">
-        <figcaption>${data[work].title}</figcaption>
-    </figure> -->
-        </div>
+        <div class="gallery" id="gallery"></div>
       </section>
       <section id="contact">
         <h2>Contact</h2>
