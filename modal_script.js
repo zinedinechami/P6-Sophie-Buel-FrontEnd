@@ -63,6 +63,8 @@ const modal_form = document.getElementById("modal_form");
 const modal_input_image = document.getElementById("modal_input_img");
 const modal_input_title = document.getElementById("modal_input_title");
 const modal_input_category = document.getElementById("modal_input_categories");
+const modal_add_message = document.getElementById("added");
+
 modal_form.addEventListener("submit", function (event) {
   event.preventDefault();
   const modalFormData = new FormData();
@@ -92,6 +94,7 @@ modal_form.addEventListener("submit", function (event) {
         <i class="fa-solid fa-trash-can"></i> 
       </span>
       </article>`;
+      modal_add_message.classList.replace("inactive", "active");
       return deleteWorks();
     });
 });

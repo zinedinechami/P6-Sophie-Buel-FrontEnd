@@ -50,8 +50,6 @@ const category_section = document.getElementById("filters");
 const modal_category_section = document.getElementById(
   "modal_input_categories"
 );
-console.log(modal_category_section);
-
 fetch(api_url + "categories")
   .then(function (response) {
     return response.json();
