@@ -7,7 +7,7 @@ fetch(api_url + "works")
   })
   .then(function (data) {
     for (let work in data) {
-      gallery_section.innerHTML += `<figure id="delete" data-${data[work].categoryId} class="active">
+      gallery_section.innerHTML += `<figure id="delete-${data[work].id}" data-${data[work].categoryId} class="active">
         <img src="${data[work].imageUrl}" alt="${data[work].title}">
         <figcaption>${data[work].title}</figcaption>
     </figure>`;
@@ -29,18 +29,15 @@ function deleteWorks() {
   for (let suppresion of modal_delete) {
     suppresion.addEventListener("click", function (event) {
       event.preventDefault();
-
       const id = suppresion.id;
       const articleElement = event.target.closest("article");
-      const figureElement = document.getElementById("delete");
-      const parent = figureElement.parentNode;
-
+      const figureElement = document.querySelector("#delete-" + id);
       fetch(api_url + "works/" + id, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       }).then(function () {
         articleElement.remove();
-        parent.removeChild(figureElement);
+        figureElement.remove();
         modal_delete_message.classList.replace("inactive", "active");
       });
     });
