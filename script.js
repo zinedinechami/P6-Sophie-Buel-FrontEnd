@@ -47,6 +47,11 @@ function deleteWorks() {
 }
 
 const category_section = document.getElementById("filters");
+const modal_category_section = document.getElementById(
+  "modal_input_categories"
+);
+console.log(modal_category_section);
+
 fetch(api_url + "categories")
   .then(function (response) {
     return response.json();
@@ -57,6 +62,9 @@ fetch(api_url + "categories")
       filterButton.innerHTML = `${data[category].name}`;
       filterButton.id = `${data[category].id}`;
       category_section.appendChild(filterButton);
+    }
+    for (let category in data) {
+      modal_category_section.innerHTML += `<option value="${data[category].id}">${data[category].name}</option>`;
     }
     return showFilters();
   });
