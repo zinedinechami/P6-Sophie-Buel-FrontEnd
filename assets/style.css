@@ -515,6 +515,11 @@ a {
   outline: none;
 }
 
+#deleted {
+  color: red;
+  text-align: center;
+}
+
 /* modal ajout photo */
 
 .modal_return {

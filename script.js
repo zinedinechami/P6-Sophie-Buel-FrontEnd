@@ -25,7 +25,7 @@ fetch(api_url + "works")
 
 function deleteWorks() {
   const modal_delete = document.querySelectorAll(".modal_delete_icon");
-
+  const modal_delete_message = document.getElementById("deleted");
   for (let suppresion of modal_delete) {
     suppresion.addEventListener("click", function (event) {
       event.preventDefault();
@@ -41,6 +41,7 @@ function deleteWorks() {
       }).then(function () {
         articleElement.remove();
         parent.removeChild(figureElement);
+        modal_delete_message.classList.replace("inactive", "active");
       });
     });
   }
